@@ -7,6 +7,9 @@ public class TextChanger : MonoBehaviour
     [SerializeField] private Text _text;
     [SerializeField] private float _duration;
     [SerializeField] private float _delay;
+    [SerializeField] private string _changeText;
+    [SerializeField] private string _additionalText;
+    [SerializeField] private string _hackedText;
 
     private void Start()
     {
@@ -17,9 +20,9 @@ public class TextChanger : MonoBehaviour
     {
         Sequence sequence = DOTween.Sequence();
 
-        sequence.Append(_text.DOText("Замена текста", _duration));
-        sequence.Append(_text.DOText(_text.text + " дополнение к тексту", _duration));
-        sequence.Append(_text.DOText("Взламываем текст", _duration, true, ScrambleMode.All));
+        sequence.Append(_text.DOText(_changeText, _duration));
+        sequence.Append(_text.DOText(_text.text + _additionalText, _duration));
+        sequence.Append(_text.DOText(_hackedText, _duration, true, ScrambleMode.All));
         sequence.SetLoops(-1,LoopType.Restart);
         sequence.SetDelay(_delay);
     }
