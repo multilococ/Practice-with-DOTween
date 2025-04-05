@@ -16,8 +16,8 @@ public class TextChanger : MonoBehaviour
     private void Change() 
     {
         Sequence sequence = DOTween.Sequence();
-        
-        sequence.Append(_text.DOText("Заменат текста", _duration));
+
+        sequence.Append(_text.DOText("Замена текста", _duration));
         sequence.Append(_text.DOText(_text.text + " дополнение к тексту", _duration));
         sequence.Append(_text.DOText("Взламываем текст", _duration, true, ScrambleMode.All));
         sequence.SetLoops(-1,LoopType.Restart);
